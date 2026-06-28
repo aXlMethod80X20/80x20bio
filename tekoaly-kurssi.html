@@ -461,6 +461,280 @@ body::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ── HOOK ── */
+.hook-section {
+  text-align: center;
+  padding: 2rem 0 2.5rem;
+  animation: fadeUp 0.6s ease both;
+}
+.hook-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 10vw, 5.5rem);
+  letter-spacing: 0.04em;
+  color: var(--text-bright);
+  line-height: 1;
+  margin: 1.2rem 0 1rem;
+}
+.hook-accent { color: var(--amber); }
+.hook-sub {
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ── WEEKLY TRACKER ── */
+.tracker {
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 0.7s ease both 0.1s;
+}
+.tracker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.tracker-week { color: var(--amber); }
+.tracker-desc {
+  font-size: 0.68rem;
+  line-height: 1.7;
+  color: var(--text-dim);
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.goal-row {
+  margin-bottom: 1rem;
+}
+.goal-input {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--border-mid);
+  border-radius: 6px;
+  padding: 0.65rem 0.9rem;
+  color: var(--text-bright);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  outline: none;
+  margin-bottom: 0.5rem;
+  transition: border-color 0.2s;
+}
+.goal-input:focus { border-color: var(--amber); }
+.goal-input::placeholder { color: var(--text-faint); }
+.day-checks {
+  display: flex;
+  gap: 0.35rem;
+}
+.day-btn {
+  flex: 1;
+  padding: 0.3rem 0;
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+  user-select: none;
+}
+.day-btn.done {
+  background: var(--amber-soft);
+  border-color: rgba(232,160,0,0.3);
+  color: var(--amber);
+}
+.tracker-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.tracker-score {
+  font-size: 0.62rem;
+  color: var(--teal);
+  letter-spacing: 0.08em;
+}
+.tracker-reset {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid var(--border-mid);
+  border-radius: 4px;
+  color: var(--text-dim);
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+  transition: all 0.2s;
+}
+.tracker-reset:hover { border-color: var(--text-dim); color: var(--text-bright); }
+
+/* ── DASHBOARD ── */
+.dashboard {
+  margin-bottom: 0;
+  padding-bottom: 3rem;
+  animation: fadeUp 0.6s ease both;
+}
+.dash-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+.dash-status { display: flex; align-items: center; gap: 0.4rem; }
+.dash-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 8px var(--teal);
+  animation: dot-blink 2.4s ease-in-out infinite;
+}
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+@media(max-width: 540px) { .dash-grid { grid-template-columns: 1fr; } }
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.dash-card:hover { background: var(--surface-2); }
+.dash-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.dash-icon { font-size: 1.3rem; flex-shrink: 0; }
+.dash-info { flex: 1; min-width: 0; }
+.dash-name {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--text-bright);
+  margin-bottom: 0.2rem;
+}
+.dash-metric {
+  font-size: 0.58rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+.dash-ring-wrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dash-ring { width: 44px; height: 44px; transform: rotate(-90deg); }
+.ring-bg { fill: none; stroke: var(--border-mid); stroke-width: 3; }
+.ring-fill { fill: none; stroke-width: 3; stroke-linecap: round; transition: stroke-dasharray 1s ease; }
+.amber-ring { stroke: var(--amber); }
+.teal-ring { stroke: var(--teal); }
+.ring-pct {
+  position: absolute;
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.amber-text { color: var(--amber); }
+.teal-text { color: var(--teal); }
+.dash-detail {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+.dash-week {
+  display: flex;
+  gap: 0.3rem;
+  margin-bottom: 0.6rem;
+}
+.day {
+  font-size: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.35rem;
+  border-radius: 4px;
+  background: var(--surface-2);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+.day.done { background: var(--amber-soft); color: var(--amber); border-color: rgba(232,160,0,0.2); }
+.dash-habits { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.6rem; }
+.habit {
+  font-size: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 100px;
+  background: var(--surface-2);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+.habit.done { background: var(--teal-soft); color: var(--teal); border-color: rgba(0,200,160,0.2); }
+.dash-sub { font-size: 0.55rem; color: var(--text-faint); letter-spacing: 0.05em; }
+.dash-bar-wrap { margin-bottom: 0.6rem; }
+.dash-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.52rem;
+  color: var(--text-dim);
+  margin-bottom: 0.4rem;
+}
+.dash-bar {
+  height: 4px;
+  background: var(--border-mid);
+  border-radius: 100px;
+  overflow: hidden;
+}
+.dash-bar-fill {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 1.2s ease;
+}
+.amber-fill { background: var(--amber); }
+.teal-fill { background: var(--teal); }
+
+/* TRANSITION */
+.dash-transition {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 3rem;
+  padding-top: 1rem;
+}
+.dash-transition-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-mid), transparent);
+}
+.dash-transition-label {
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
 .module:nth-child(1) { animation-delay: 0.1s; }
 .module:nth-child(2) { animation-delay: 0.2s; }
 .module:nth-child(3) { animation-delay: 0.3s; }
@@ -477,6 +751,47 @@ body::after {
 </head>
 <body>
 <div class="wrapper">
+
+  <!-- HOOK -->
+  <div class="hook-section">
+    <div class="badge"><span class="badge-dot"></span> axlmethod · tekoäly 2026</div>
+    <h1 class="hook-title">Pääse <span class="hook-accent">99%</span> edelle<br>tekoälyssä</h1>
+    <p class="hook-sub">Harva ymmärtää mitä tekoäly oikeasti on — tai miten käyttää sitä. Tämä muuttaa sen.</p>
+  </div>
+
+  <!-- WEEKLY TRACKER -->
+  <div class="tracker">
+    <div class="tracker-header">
+      <span class="tracker-label">// viikon tavoitteet</span>
+      <span class="tracker-week" id="tracker-week"></span>
+    </div>
+    <p class="tracker-desc">Kirjoita tämän viikon 3 tavoitettasi. Rastita päivät kun teet edistystä. AI auttaa — sinä teet.</p>
+
+    <div class="goal-row">
+      <input class="goal-input" type="text" placeholder="💪 Esim. Treenaa 4x viikossa" id="g1" oninput="saveGoals()">
+      <div class="day-checks" id="days1"></div>
+    </div>
+    <div class="goal-row">
+      <input class="goal-input" type="text" placeholder="🧠 Esim. Lue 20min tekoälystä" id="g2" oninput="saveGoals()">
+      <div class="day-checks" id="days2"></div>
+    </div>
+    <div class="goal-row">
+      <input class="goal-input" type="text" placeholder="🚀 Esim. Postaa yksi video" id="g3" oninput="saveGoals()">
+      <div class="day-checks" id="days3"></div>
+    </div>
+
+    <div class="tracker-footer">
+      <span id="tracker-score" class="tracker-score">0 / 21 päivää tehty</span>
+      <button class="tracker-reset" onclick="resetTracker()">Nollaa viikko</button>
+    </div>
+  </div>
+
+  <!-- SMOOTH TRANSITION -->
+  <div class="dash-transition">
+    <div class="dash-transition-line"></div>
+    <span class="dash-transition-label">// miten tekoäly toimii</span>
+    <div class="dash-transition-line"></div>
+  </div>
 
   <!-- HERO -->
   <div class="hero">
@@ -550,8 +865,8 @@ body::after {
       </ul>
 
       <div class="truth">
-        <strong>// axlin näkökulma pankkimaailmasta</strong>
-        Isot organisaatiot implementoivat tekoälyä hitaasti. Regulaatio, legacy-järjestelmät, byrokraatia. Tämä tarkoittaa että sinulla on 12-18 kuukautta etulyöntiasemaa jos aloitat nyt. Ikkunat sulkeutuvat.
+        <strong>// totuus</strong>
+        Useimmat ihmiset odottavat että joku kertoo heille milloin aloittaa. Se hetki ei tule. Ne jotka aloittavat nyt — oppivat, kokeilevat, epäonnistuvat ja korjaavat — ovat 12-18 kuukauden päästä eri planeetalla kuin ne jotka vielä odottavat.
       </div>
     </div>
   </div>
@@ -751,10 +1066,12 @@ body::after {
 
   <!-- CTA -->
   <div class="cta-box">
-    <div class="cta-title">Haluatko mennä syvemmälle?</div>
-    <p class="cta-sub">Rakennan yhteisöä suomalaisille jotka haluavat oikeasti oppia rakentamaan tekoälyllä — ei vain käyttää sitä. Agentit, CLI, rakentaminen, vapaus.</p>
-    <a href="https://www.instagram.com/axlmethod/" class="cta-btn">Seuraa @axlmethod</a>
-    <p style="margin-top:1rem; font-size:0.6rem; color:var(--text-dim);">Yhteisö tulossa. Kommentoi <strong style="color:var(--amber)">AGENTTI</strong> viimeisimpään postaukseen.</p>
+    <div class="cta-title">Liity Tekoälyrakentajat-yhteisöön</div>
+    <p class="cta-sub">Suomalaiset jotka rakentavat tekoälyllä — ei vain käytä sitä. Viikottaiset live-buildit, promptit, agentit. $67/kk.</p>
+    <div style="display:flex;gap:0.8rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://www.skool.com/tekoalyrakentajat-1213" class="cta-btn" target="_blank" rel="noopener">Liity yhteisöön →</a>
+    </div>
+    <p style="margin-top:1rem; font-size:0.6rem; color:var(--text-dim);">Tai seuraa <strong style="color:var(--teal)">@axlmethod</strong> — kommentoi <strong style="color:var(--amber)">AGENTTI</strong> → saat lisää.</p>
   </div>
 
   <p class="footer-note">axlmethod80x20 · <a href="https://axlmethod80x20.github.io/lifeOS80x20/">lifeOS dashboard</a> · <a href="https://www.instagram.com/axlmethod/">instagram</a></p>
@@ -762,9 +1079,77 @@ body::after {
 </div>
 
 <script>
-function toggleModule(el) {
-  el.classList.toggle('open');
+function toggleModule(el) { el.classList.toggle('open'); }
+
+// ── WEEKLY TRACKER ──
+const DAYS = ['Ma','Ti','Ke','To','Pe','La','Su'];
+const WEEK_KEY = 'axl_tracker_' + getWeekKey();
+
+function getWeekKey() {
+  const d = new Date();
+  const jan1 = new Date(d.getFullYear(), 0, 1);
+  return d.getFullYear() + '_' + Math.ceil(((d - jan1) / 86400000 + jan1.getDay() + 1) / 7);
 }
+
+function loadTracker() {
+  return JSON.parse(localStorage.getItem(WEEK_KEY) || '{"goals":["","",""],"days":[[],[],[]]}');
+}
+
+function saveGoals() {
+  const data = loadTracker();
+  ['g1','g2','g3'].forEach((id,i) => { data.goals[i] = document.getElementById(id).value; });
+  localStorage.setItem(WEEK_KEY, JSON.stringify(data));
+}
+
+function toggleDay(goalIdx, dayIdx) {
+  const data = loadTracker();
+  const arr = data.days[goalIdx];
+  const pos = arr.indexOf(dayIdx);
+  if (pos > -1) arr.splice(pos, 1); else arr.push(dayIdx);
+  localStorage.setItem(WEEK_KEY, JSON.stringify(data));
+  renderTracker();
+}
+
+function resetTracker() {
+  localStorage.removeItem(WEEK_KEY);
+  renderTracker();
+  ['g1','g2','g3'].forEach(id => { document.getElementById(id).value = ''; });
+}
+
+function renderTracker() {
+  const data = loadTracker();
+  let total = 0;
+  [0,1,2].forEach(i => {
+    const el = document.getElementById('g' + (i+1));
+    if (el) el.value = data.goals[i] || '';
+    const container = document.getElementById('days' + (i+1));
+    if (!container) return;
+    container.innerHTML = '';
+    DAYS.forEach((day, j) => {
+      const done = data.days[i].includes(j);
+      if (done) total++;
+      const btn = document.createElement('div');
+      btn.className = 'day-btn' + (done ? ' done' : '');
+      btn.textContent = day;
+      btn.onclick = () => toggleDay(i, j);
+      container.appendChild(btn);
+    });
+  });
+  const score = document.getElementById('tracker-score');
+  if (score) score.textContent = total + ' / 21 päivää tehty';
+
+  // Set week label
+  const weekEl = document.getElementById('tracker-week');
+  if (weekEl) {
+    const now = new Date();
+    const mon = new Date(now);
+    mon.setDate(now.getDate() - (now.getDay() || 7) + 1);
+    const sun = new Date(mon); sun.setDate(mon.getDate() + 6);
+    weekEl.textContent = mon.getDate() + '.' + (mon.getMonth()+1) + ' — ' + sun.getDate() + '.' + (sun.getMonth()+1);
+  }
+}
+
+renderTracker();
 </script>
 </body>
 </html>
