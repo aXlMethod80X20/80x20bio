@@ -607,6 +607,32 @@ body::after {
   background: var(--teal); color: #04120e;
   transform: translateY(-1px);
 }
+
+/* Clear first screen and readable links */
+.container { max-width: 520px; padding: 3rem 1.5rem 3rem; }
+.avatar-wrap { margin-bottom: 1.25rem; }
+.status { margin-bottom: 1rem; }
+.handle { margin-bottom: .8rem; }
+.tagline { max-width: 390px; color: #aaaabd; font-size: 1.08rem; line-height: 1.5; margin-bottom: 1.35rem; }
+.metrics { margin-bottom: 2rem; }
+.link-card { min-height: 76px; padding: 1rem 1.1rem; }
+.link-label, .link-sub { white-space: normal; overflow: visible; text-overflow: clip; }
+.link-label { line-height: 1.3; }
+.link-sub { line-height: 1.45; color: #9999ad; }
+.section-label { color: #88889b; font-size: .58rem; }
+.more { width: 100%; margin-top: 1.5rem; border-top: 1px solid var(--border-light); }
+.more > summary { list-style: none; cursor: pointer; padding: 1rem .25rem; color: var(--text-bright); font-family: 'Syne', sans-serif; font-size: .9rem; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+.more > summary::-webkit-details-marker { display: none; }
+.more > summary span { color: var(--amber); }
+.more[open] > summary span { transform: rotate(180deg); }
+.more-content { width: 100%; }
+.more-content .jarvis { margin-top: 1rem; }
+@media (max-width: 420px) {
+  .container { padding: 2.5rem 1.25rem; }
+  .tagline { font-size: 1rem; }
+  .metrics { gap: .55rem; }
+  .metric { font-size: .45rem; letter-spacing: .08em; }
+}
 </style>
 </head>
 <body>
@@ -635,7 +661,7 @@ body::after {
   </div>
 
   <!-- Tagline -->
-  <p class="tagline">Stories and mental models from business and sport for people building something of their own.</p>
+  <p class="tagline">Business, sport, and better decisions for people building something of their own.</p>
 
   <!-- Metrics -->
   <div class="metrics">
@@ -667,13 +693,16 @@ body::after {
         </svg>
       </div>
       <div class="link-text">
-        <span class="link-label">Elite fit. Corporate schedule.</span>
-        <span class="link-sub">See the current program on Gumroad</span>
+        <span class="link-label">Explore the 80×20 program</span>
+        <span class="link-sub">Athletic performance for ambitious schedules</span>
       </div>
       <span class="link-arrow">→</span>
     </a>
   </div>
 
+  <details class="more">
+    <summary>More from Axl Method <span aria-hidden="true">↓</span></summary>
+    <div class="more-content">
   <!-- JARVIS live app -->
   <section class="jarvis" aria-labelledby="jarvis-title">
     <div class="jarvis-head">
@@ -812,6 +841,9 @@ body::after {
     </a>
 
   </div>
+
+    </div>
+  </details>
 
   <!-- Footer -->
   <div class="footer">
